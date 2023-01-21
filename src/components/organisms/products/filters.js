@@ -1,7 +1,7 @@
 import Select from "@/components/atoms/select";
 import Input from "@/components/atoms/input";
 
-const Filters = ({categories, onSelecCategory, onSearch}) => {
+const Filters = ({categories, onSelecCategory, onSearch, valueCategory, valueSearch}) => {
     const onSelectCategory = (val) => {
         onSelecCategory(val)
     }
@@ -12,10 +12,15 @@ const Filters = ({categories, onSelecCategory, onSearch}) => {
                 sm:px-10 py-8 relative bg-no-repeat bg-right bg-contain mb-8">
                     <div className="text-rose-400 font-semibold text-lg">Filters</div>
                     <div className="mt-6 grid grid-cols-1 xs:grid-cols-2 gap-y-6 gap-x-6 md:flex md:space-x-6 md:gap-x-0 ">
-                        <Input title={'Search Product'} onChange={onSearch} />
+                        <Input value={valueSearch} title={'Search Product'} onChange={onSearch} />
                         {/* <Select title={'Brand'} lists={categoryLists} onSelected={onSelectCategory} />
                         <Select title={'Product'} lists={categoryLists} onSelected={onSelectCategory} /> */}
-                        <Select title={'Category'} lists={categories} onSelected={onSelectCategory} />
+                        <Select 
+                            title={'Category'} 
+                            lists={categories} 
+                            valueCategory={valueCategory}
+                            onSelected={onSelectCategory} 
+                        />
                     </div>
             </div>
         </section>

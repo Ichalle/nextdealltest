@@ -69,6 +69,7 @@ const Products = ({
 	}
 
 	const onSelecCategory = (val) => {
+		setSearch('')
 		setSkip(0)
 		setPage(1)
 		if (!val) {
@@ -78,6 +79,7 @@ const Products = ({
 	}
 	
 	const onSearch = (val) => {
+		setCategory('')
 		setSkip(0)
 		setSearch(val)
 	}
@@ -105,7 +107,9 @@ const Products = ({
 	}, [page])
 	
 	useEffect(() => {
-		fetchProductsByCategory();
+		if (!search) {
+			fetchProductsByCategory();
+		}
 	}, [category])
 	
 	useEffect(() => {
@@ -116,7 +120,13 @@ const Products = ({
 	return (
 		<div>
 			<Header title="Products" />
-			<Filters categories={categories} onSelecCategory={onSelecCategory} onSearch={onSearch} />
+			<Filters 
+				categories={categories} 
+				valueCategory={category}
+				valueSearch={search}
+				onSelecCategory={onSelecCategory} 
+				onSearch={onSearch} 
+			/>
 			<DataTable lists={productList} onClick={handleClickItem} />
 			<Pagination page={page} total={total} onClick={handlePagination} />
 		</div>

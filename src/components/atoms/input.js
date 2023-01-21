@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-const Input = ({title, onChange}) => {
+import React, {useState, useEffect} from "react"
+const Input = ({title, onChange, value}) => {
     const [inputValue, setInputValue] = useState('')
     const handleChange = (val) => {
         setInputValue(val.target.value)
@@ -11,6 +11,10 @@ const Input = ({title, onChange}) => {
             onChange(inputValue)
         }
     }
+
+    useEffect(() => {
+        setInputValue(value)
+    }, [value])
 
     return (
         <div className="flex flex-col  md:w-40  text-gray-600 text-sm space-y-2 font-semibold">

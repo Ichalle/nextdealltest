@@ -1,15 +1,22 @@
+import React, {useState, useEffect} from 'react';
 import {splitStr} from '../../utils';
 
-const Select = ({title, lists, onSelected}) => {
+const Select = ({title, lists, onSelected, valueCategory}) => {
+    const [value, setValue] = useState('')
     const handleChange = (val) => {
         onSelected(val.target.value)
     }
+
+
+    useEffect(() => {
+        setValue(valueCategory)
+    }, [valueCategory])
 
     return (
         <div className="flex flex-col md:w-40  text-gray-600 text-sm space-y-2 font-semibold">
             <label for="client">{title}</label>
             <div className="inline-flex relative">
-                <select onChange={handleChange} className="bg-rose-400 text-white  
+                <select value={value} onChange={handleChange} className="bg-rose-400 text-white  
                     capitalize px-4 py-3 rounded-lg appearance-none w-full outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300">
                     <option value={''}>All</option>
                     {lists && lists.map((list, index) => {
