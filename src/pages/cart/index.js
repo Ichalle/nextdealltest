@@ -1,10 +1,3 @@
-import Link from 'next/link'
+import Cart from './Cart'
 
-export default function Cart() {
-  return (
-    <>
-      <div>cart</div>
-      <div><Link href="/">home</Link></div>
-    </>
-  )
-}
+export default Cart();

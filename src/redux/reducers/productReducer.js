@@ -3,10 +3,7 @@ import {
 } from "../actions/productActions";
   
 const initialState = {
-	products: null,
-	product: null,
-	loading: false,
-	error: null
+	products: null
 };
   
 // eslint-disable-next-line import/no-anonymous-default-export

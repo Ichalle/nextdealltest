@@ -1,12 +1,15 @@
 import { Provider } from "react-redux";
 import { wrapper, store } from '../redux/store';
+import Layout from '../components/templates';
 import '@/styles/globals.css';
 
 function App ({Component, pageProps}) {
 	return (
 		<>
 			<Provider store={store}>
-				<Component {...pageProps} />
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
 			</Provider>
 		</>
 	)
