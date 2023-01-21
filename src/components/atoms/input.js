@@ -19,6 +19,7 @@ const Input = ({title, onChange}) => {
                 <input 
                     onChange={handleChange} 
                     onKeyDown={handleEnter}
+                    placeholder={title}
                     className="bg-indigo-800/80 text-white tracking-wider pl-4 pr-10 py-3 
                     rounded-lg appearance-none w-full outline-none focus:ring-2 focus:ring-offset-2 
                     focus:ring-indigo-300" id="client" name="client" type="text" value={inputValue} />
