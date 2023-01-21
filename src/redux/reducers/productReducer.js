@@ -1,9 +1,11 @@
 import {
     GET_ALL_PRODUCTS,
+	GET_ALL_CATEGORIES
 } from "../actions/productActions";
   
 const initialState = {
-	products: null
+	products: [],
+	categories: []
 };
   
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -14,6 +16,11 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				products: payload.products
+			};
+		case GET_ALL_CATEGORIES:
+			return {
+				...state,
+				products: payload.categories
 			};
 		default:
 			return state;

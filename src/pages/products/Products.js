@@ -4,12 +4,23 @@ import Filters from "@/components/organisms/products/filters";
 import DataTable from "@/components/organisms/products/dataTable";
 import Pagination from "@/components/organisms/products/pagination";
 
-const Products = ({ getAllProducts, products}) => {
+const Products = ({ 
+	getAllProducts, 
+	getAllCategories, 
+	getProductsSearch,
+	getProductsByCategory,
+	products
+}) => {
 	const [productList, setProductList] = useState([]);
 	const [limit, setLimit] = useState(5);
 	const [skip, setSkip] = useState(0);
 	const [page, setPage] = useState(1);
 	const [total, setTotal] = useState(0);
+	const [categories, setCategories] = useState([]);
+	const [category, setCategory] = useState();
+	const [search, setSearch] = useState('');
+
+
 	const fetchProducts = async () => {
 		const payload = {
 			limit,
@@ -17,10 +28,57 @@ const Products = ({ getAllProducts, products}) => {
 		}
 		await getAllProducts(payload)
 			.then((res) => {
-				setProductList(res.products)
-				setLimit(res.limit)
-				setTotal(res.total / res.limit)
+				setProducts(res)
 			})
+	}
+
+	const fetchCategories = async () => {
+		await getAllCategories()
+			.then((res) => {
+				setCategories(res)
+			})
+	}
+	
+	const fetchProductSearch = async () => {
+		const params = {
+			q: search,
+			limit,
+			skip,
+		}
+		await getProductsSearch(params)
+			.then((res) => {
+				setProducts(res)
+			})
+	}
+	
+	const fetchProductsByCategory = async () => {
+		const params = {
+			q: search,
+			limit,
+			skip,
+		}
+		await getProductsByCategory({category, params})
+			.then((res) => {
+				setProducts(res)
+			})
+	}
+
+	const setProducts = (res) => {
+		setProductList(res.products)
+		setTotal(Math.floor(res.total / res.limit))
+	}
+
+	const onSelecCategory = (val) => {
+		setSkip(0)
+		if (!val) {
+			return fetchProducts()
+		}
+		setCategory(val)
+	}
+	
+	const onSearch = (val) => {
+		setSkip(0)
+		setSearch(val)
 	}
 
 	const handleClickItem = (val) => {
@@ -38,16 +96,22 @@ const Products = ({ getAllProducts, products}) => {
 
 	useEffect(() => {
 		fetchProducts();
+		fetchCategories();
 	}, [])
 	
 	useEffect(() => {
-		fetchProducts();
-	}, [page])
+		fetchProductsByCategory();
+	}, [category])
+	
+	useEffect(() => {
+		fetchProductSearch();
+	}, [search])
+	
 
 	return (
 		<div>
 			<Header title="Products" />
-			<Filters />
+			<Filters categories={categories} onSelecCategory={onSelecCategory} onSearch={onSearch} />
 			<DataTable lists={productList} onClick={handleClickItem} />
 			<Pagination page={page} total={total} onClick={handlePagination} />
 		</div>
