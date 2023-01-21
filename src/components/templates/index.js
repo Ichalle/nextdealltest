@@ -1,4 +1,4 @@
-import Sidebar from "../organisms/sidebar";
+import Sidebar from "../organisms/ui/sidebar";
 
 const DefaultTemplate = ({ children }) => {
     return (
