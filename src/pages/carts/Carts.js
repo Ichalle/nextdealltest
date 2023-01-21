@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "@/components/organisms/ui/header";
 import Pagination from "@/components/organisms/ui/pagination";
-import DataTableCarts from "@/components/organisms/carts/DataTableCarts";
+import DataTableCarts from "@/components/organisms/carts/dataTableCarts";
 import DetailCart from "@/components/organisms/carts/detailCart";
 
 const Carts = ({ 
