@@ -30,10 +30,7 @@ const DataTable = ({lists, onClick}) => {
                         return (
                             <tr key={index} className="bg-white border-b">
                                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    <span className="hover:text-rose-500 cursor-pointer" 
-                                        onClick={() => handleClickItem(item)}>
-                                        {item.title}
-                                    </span>
+                                    {item.title}
                                 </th>
                                 <td className="px-6 py-4">
                                     {item.brand}

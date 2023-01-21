@@ -70,6 +70,7 @@ const Products = ({
 
 	const onSelecCategory = (val) => {
 		setSkip(0)
+		setPage(1)
 		if (!val) {
 			return fetchProducts()
 		}
@@ -98,6 +99,10 @@ const Products = ({
 		fetchProducts();
 		fetchCategories();
 	}, [])
+	
+	useEffect(() => {
+		fetchProducts();
+	}, [page])
 	
 	useEffect(() => {
 		fetchProductsByCategory();
