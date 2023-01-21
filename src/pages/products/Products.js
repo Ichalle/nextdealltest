@@ -57,6 +57,7 @@ const Products = ({
 			limit,
 			skip,
 		}
+		if (!category) { return }
 		await getProductsByCategory({category, params})
 			.then((res) => {
 				setProducts(res)
