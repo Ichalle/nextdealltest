@@ -1,2 +1,2 @@
-import Home from "./home";
-export default Home;
+import Products from "./Products";
+export default Products;

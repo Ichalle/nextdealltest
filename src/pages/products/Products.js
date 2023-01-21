@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Link from 'next/link';
 
-export default function Home({
+export default function Products({
 	getAllProducts,
 	products
 }) {
@@ -29,7 +28,6 @@ export default function Home({
 			{`${limit}`}
 			{`${total}`}
 			{`${productList}`}
-			Home,,,,<button onClick={() => navigate('/cart')}>test</button>
 		</div>
 	)
 }
