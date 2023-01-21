@@ -1,9 +1,11 @@
 import API from '../../axios/API';
 
-export const getAllProducts = () => dispatch => {
+export const getAllProducts = params => dispatch => {
+	const {limit} = params
 	return API({
-		method: "GET",
-		url: `/products`
+	  method: "GET",
+	  url: `/products`,
+	  params
 	})
 		.then(res => {
 			dispatch({
