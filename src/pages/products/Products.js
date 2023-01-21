@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Header from "@/components/organisms/ui/header";
+import Pagination from "@/components/organisms/ui/pagination";
 import Filters from "@/components/organisms/products/filters";
 import DataTable from "@/components/organisms/products/dataTable";
-import Pagination from "@/components/organisms/products/pagination";
 
 const Products = ({ 
 	getAllProducts, 

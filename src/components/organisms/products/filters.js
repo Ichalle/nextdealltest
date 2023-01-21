@@ -8,7 +8,7 @@ const Filters = ({categories, onSelecCategory, onSearch}) => {
 
     return (
         <section>
-            <div className="bg-rose-100/70 mt-12 rounded-xl px-5 
+            <div className="bg-rose-100/70 rounded-xl px-5 
                 sm:px-10 py-8 relative bg-no-repeat bg-right bg-contain mb-8">
                     <div className="text-rose-400 font-semibold text-lg">Filters</div>
                     <div className="mt-6 grid grid-cols-1 xs:grid-cols-2 gap-y-6 gap-x-6 md:flex md:space-x-6 md:gap-x-0 ">

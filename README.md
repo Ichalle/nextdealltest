@@ -1,4 +1,8 @@
-See [Demo](https://nextdealltest.vercel.app/)
+## Preview [Demo](https://nextdealltest.vercel.app/)
+
+## About this app
+
+This application is an admin platform to view products and carts. Using Next.js with Atomic design pattern.
 
 ## Getting Started for run in local
 
@@ -18,9 +22,5 @@ pnpm dev
 - Tailwind
 - Axios
 
-## About this app
-
-This application is an admin platform to view products and carts.
-
 ## Todo
-Filter by brand and price is not available by the given Json, so I can't use it
+Filter by brand and price is not available by the given from Dummy Json, so I can't use it

@@ -7,8 +7,8 @@ const SideNav = () => {
             link: '/'
         },
         {
-            text: 'Cart',
-            link: '/cart'
+            text: 'Carts',
+            link: '/carts'
         }
     ]
 
